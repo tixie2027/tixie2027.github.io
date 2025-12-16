@@ -52,7 +52,10 @@ skills:
     - ARM Cortex-M, RISC-V
     - SPI / I2C / UART / CAN
     - DMA / Interrupts / Timers
-    - JTAG / OpenOCD
+    - Analog / Digital Filter Design
+    - Signal Processing / Fourier Transform
+    - STM32 / Raspberry Pi
+    - JTAG
   - category: Machine Learning
     tools:
     - Python
@@ -64,28 +67,14 @@ skills:
     - Model compression
     - Computer Vision
     - Dataset curation & evaluation
-  - category: Design Standards / Practices
+  - category: RISC-V Processor Verification
     tools:
-    - GD&T ASME Y14
-    - ISO fits and tolerances
-    - PLM (PTC Windchill / Arena)   
-  - category: PCB Design
-    tools:
-    - Altium Designer
-    - Altium
-    - Eagle 
-    - KiCad
-  - category: Problem Solving / Risk Management
-    tools:
-    - Root Cause Analysis (e.g., 5 Whys, Fishbone Diagram)
-    - DFMEA / PFMEA 
-    - Six Sigma methodologies
-    - Shain Red-X
-
-
-# Contact Form Setup. Setup an account and copy over the key. When someone fills out the form, it will be received in your email.
-formspree-key:   https://formspree.io/f/{8-digit key}
-
+    - C++
+    - Physical Memory Protection unit (PMP)
+    - Debug module
+    - Test plan / coverage points
+    - RISC-V
+    - OpenOCD / JTAG
 
 
 # Active theme (Updatethis to switch themes). Make sure to keep the indentation the samne.

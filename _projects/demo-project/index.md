@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Super Heavy Booster Catch (Demo Only)
+title: High-Rate ADC Sampling and BLE Streaming on nRF5340
 description:  The US Department of Agriculture aims to record insect behavior by passing a current through an insect and digitizing the signal with an MCU. The nRF5340’s default 100 Hz ADC sampling causes aliasing, so we implemented a DMA-driven pipeline to sample at 10 kHz and stream the data over Bluetooth Low Energy without packet loss. **We solve the long-standing problem that has been bothering the ecologists for over a year.**
 skills: 
   - Microcontroller Programming (C/C++)
@@ -17,12 +17,12 @@ main-image: /fpga_mcu.png
 ---
 
 ## MCU Design
-![](mcu_overview.png)
+![](_projects\demo-project\mcu_overview.png)
 High-frequency ADC sampling (10 kHz) is implemented using a fully hardware-driven pipeline to avoid RTOS scheduling jitter. Rather than triggering ADC reads from RTOS threads, sampling is driven by a hardware timer and Direct Memory Access (DMA), with minimal CPU involvement.
 
 A hardware timer (TIMER2) is configured to generate a compare event every 100 µs, corresponding to a 10 kHz sampling rate. This event is routed via the Distributed Programmable Peripheral Interconnect (DPPI) directly to the SAADC SAMPLE task. Each timer event triggers exactly one ADC conversion, and the resulting 12-bit sample is written directly into a DMA buffer.
 
-![](mcu_flowchart.png)
+![](_projects\demo-project\mcu_flowchart.png)
 The SAADC operates in a double-buffered mode. After 80 samples are collected, the SAADC generates an END event. This event triggers two parallel actions:
 
 via DPPI, the SAADC is immediately restarted to fill the next buffer, ensuring continuous sampling with no gaps;
