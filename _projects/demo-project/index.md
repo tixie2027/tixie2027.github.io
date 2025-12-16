@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Firmware work at US Department of Agriculture
-description:  The US Department of Agriculture aims to record insect behavior by passing a current through an insect and digitizing the signal with an MCU. The nRF5340’s default 100 Hz ADC sampling causes aliasing, so we implemented a DMA-driven pipeline to sample at 10 kHz and stream the data over Bluetooth Low Energy without packet loss. **We solve the long-standing problem that has been bothering the ecologists for over a year.**
+description:  The US Department of Agriculture aims to record insect behavior by passing a current through an insect and digitizing the signal with an MCU. The Nordic nRF5340 MCU’s default 100 Hz ADC sampling causes aliasing, so we implemented a DMA-driven pipeline to sample at 10 kHz and stream the data over Bluetooth Low Energy without packet loss. **We solve the long-standing problem that has been bothering the ecologists for over a year.**
 skills: 
   - Microcontroller Programming (C/C++)
   - Direct Memory Access
@@ -11,7 +11,7 @@ skills:
   - ZephyrRTOS
   - Oscilloscope / JTAG
 
-main-image: /fpga_mcu.png
+main-image: /nordic.png
 ---
 
 ---
@@ -41,4 +41,22 @@ As a result, sampling timing is fully decoupled from CPU load and BLE throughput
 
 {% include image-gallery.html images="sine_wave.png" height="300" %} 
 
+
+## FPGA Design
+
+The role of the UPduino v3.1 FPGA in this project is to generate a signal that simulates the output of a current passing through an insect. By using a MCP4822 12-bit DAC, it is possible to send data values to the DAC, and get a clean analog signal. The DAC uses an SPI communication protocol, which allows for faster data transmission than other communication protocols such as UART.
+
+The FPGA was programmed using an FSM that determines whether to send a new data value, or whether to keep the DAC IDLE. With the on-board 48 MHz oscillator, it is possible to divide to a 3 MHz clock which was used for the SPI clock (SCK) as well as divide to a much lower frequency clock to determine a new data value from a big look-up table.
+
+
+{% include image-gallery.html images="fpga_diagram.png" height="300" %} 
+
+
+The output of the DAC goes to a reconstruction filter that smooths out the high frequencies, cleaning the signal further. From there, the output signal goes straight into the ADC of the Nordic MCU.
+
+{% include image-gallery.html images="fpga_design.png" height="300" %} 
+
+Below is the signal that is generated from the FPGA as can be seen from the oscilloscope of a sine wave with frequency of 1 kHz.
+
+{% include image-gallery.html images="sine.png" height="300" %} 
 
