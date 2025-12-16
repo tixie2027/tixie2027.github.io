@@ -1,6 +1,6 @@
 ---
 layout: post
-title: High-Rate ADC Sampling and BLE Streaming on nRF5340
+title: Firmware work at US Department of Agriculture
 description:  The US Department of Agriculture aims to record insect behavior by passing a current through an insect and digitizing the signal with an MCU. The nRF5340’s default 100 Hz ADC sampling causes aliasing, so we implemented a DMA-driven pipeline to sample at 10 kHz and stream the data over Bluetooth Low Energy without packet loss. **We solve the long-standing problem that has been bothering the ecologists for over a year.**
 skills: 
   - Microcontroller Programming (C/C++)
