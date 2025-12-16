@@ -79,12 +79,12 @@ skills:
 
 # Active theme (Updatethis to switch themes). Make sure to keep the indentation the samne.
 colors: # this is the basic theme
-  text: "#1a1c20"
-  border: "#ddd"
-  link: "#4a76ee"
-  highlight: "#0c0cf2"
-  background: "#ffffff"
-  light_background: "#f3f5fb"
+  text: "#2d2926"
+  border: "#f7f3e3"
+  link: "#ffc94d"
+  highlight: "#ffb800"
+  background: "#fffdf5"
+  light_background: "#fff9e6"
 
 # A few examples. 
 basic theme:
@@ -104,12 +104,7 @@ basic theme:
   light_background: "#f0f9f7"
   
 lemon theme:
-  text: "#2d2926"
-  border: "#f7f3e3"
-  link: "#ffc94d"
-  highlight: "#ffb800"
-  background: "#fffdf5"
-  light_background: "#fff9e6"
+
   
   pink theme:
   text: "#2d2d2d"
