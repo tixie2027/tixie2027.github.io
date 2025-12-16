@@ -22,6 +22,7 @@ High-frequency ADC sampling (10 kHz) is implemented using a fully hardware-drive
 
 A hardware timer (TIMER2) is configured to generate a compare event every 100 µs, corresponding to a 10 kHz sampling rate. This event is routed via the Distributed Programmable Peripheral Interconnect (DPPI) directly to the SAADC SAMPLE task. Each timer event triggers exactly one ADC conversion, and the resulting 12-bit sample is written directly into a DMA buffer.
 
+{% include image-gallery.html images="mcu_flowchart.png" height="400" %} 
 ![](_projects\demo-project\mcu_flowchart.png)
 The SAADC operates in a double-buffered mode. After 80 samples are collected, the SAADC generates an END event. This event triggers two parallel actions:
 
