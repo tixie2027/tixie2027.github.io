@@ -15,9 +15,8 @@ title: Tianhong Xie's Portfolio # This is what shows up in the tab of the browse
 name: Tianhong Xie
 headline: headline message
 description: >- # dont remove this line. this will ignore all new lines until the next section
-  Write an awesome intro and discuss your highlights and qualification. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Third-year engineering student at Harvey Mudd College, California. I focus on firmware/embedded system design, 
+  low-level processor validation and also some machine learning. 
 
 # Place your profile image in /assets/images/profile-image/folder and edit the file name
 profile_image: ./assets/images/profile-image/avatar.jpeg
@@ -45,29 +44,26 @@ external-links:    # input only your own url slug. The icons with missing entrie
 
 # Skills Section - Add the list of your Skills by categories/tools. The indentation for each level needs to be precise. 
 skills:
-  - category: 3D Modeling
+  - category: Firmware / Embedded Systems
     tools:
-    - Onshape
-    - Solidworks
-    - Creo
-    - Fusion 360 (Autodesk)
-    - Blender (for complex shapes or animations)
-    - Siemens NX
-    - Inventor (Autodesk)
-    - CATIA (Dassault Systèmes)
-  - category: Prototyping
+    - C / C++
+    - Bare-metal programming
+    - ZephyrRTOS
+    - ARM Cortex-M, RISC-V
+    - SPI / I2C / UART / CAN
+    - DMA / Interrupts / Timers
+    - JTAG / OpenOCD
+  - category: Machine Learning
     tools:
-    - SLA
-    - CNC
-    - FDM
-    - SLS
-    - DMLS
-    - PolyJet Printing
-    - Vacuum Casting
-    - Laser Cutting
-    - Water Jet Cutting
-    - Arduino / Raspberry Pi
-    - Breadboarding for circuit testing
+    - Python
+    - PyTorch
+    - Model training & fine-tuning
+    - CNNs / VAEs / Autoencoders
+    - LoRA / PEFT
+    - Edge ML / TinyML
+    - Model compression
+    - Computer Vision
+    - Dataset curation & evaluation
   - category: Design Standards / Practices
     tools:
     - GD&T ASME Y14
