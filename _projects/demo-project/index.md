@@ -17,13 +17,12 @@ main-image: /fpga_mcu.png
 ---
 
 ## MCU Design
-![](_projects\demo-project\mcu_overview.png)
+{% include image-gallery.html images="mcu_overview.png" height="300" %} 
 High-frequency ADC sampling (10 kHz) is implemented using a fully hardware-driven pipeline to avoid RTOS scheduling jitter. Rather than triggering ADC reads from RTOS threads, sampling is driven by a hardware timer and Direct Memory Access (DMA), with minimal CPU involvement.
 
 A hardware timer (TIMER2) is configured to generate a compare event every 100 µs, corresponding to a 10 kHz sampling rate. This event is routed via the Distributed Programmable Peripheral Interconnect (DPPI) directly to the SAADC SAMPLE task. Each timer event triggers exactly one ADC conversion, and the resulting 12-bit sample is written directly into a DMA buffer.
 
-{% include image-gallery.html images="mcu_flowchart.png" height="400" %} 
-![](_projects\demo-project\mcu_flowchart.png)
+{% include image-gallery.html images="mcu_flowchart.png" height="300" %} 
 The SAADC operates in a double-buffered mode. After 80 samples are collected, the SAADC generates an END event. This event triggers two parallel actions:
 
 via DPPI, the SAADC is immediately restarted to fill the next buffer, ensuring continuous sampling with no gaps;
@@ -40,5 +39,6 @@ TIMER2 → SAADC SAMPLE → DMA buffer → SAADC END → SAADC START
 
 As a result, sampling timing is fully decoupled from CPU load and BLE throughput, ensuring deterministic acquisition even under communication congestion. A image of the 10kHz sampled signal that is transmitted via Bluetooth is shown below. 
 
-![](sine_wave.png)
+{% include image-gallery.html images="sine_wave.png" height="300" %} 
+
 
