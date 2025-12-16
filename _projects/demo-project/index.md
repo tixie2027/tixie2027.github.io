@@ -25,13 +25,13 @@ A hardware timer (TIMER2) is configured to generate a compare event every 100 µ
 {% include image-gallery.html images="mcu_flowchart.png" height="300" %} 
 The SAADC operates in a double-buffered mode. After 80 samples are collected, the SAADC generates an END event. This event triggers two parallel actions:
 
-via DPPI, the SAADC is immediately restarted to fill the next buffer, ensuring continuous sampling with no gaps;
+1. via DPPI, the SAADC is immediately restarted to fill the next buffer, ensuring continuous sampling with no gaps;
 
-an interrupt is raised to notify the CPU that a buffer is complete.
+2. an interrupt is raised to notify the CPU that a buffer is complete.
 
 In the SAADC interrupt handler, a timestamp is captured and the completed buffer is copied into a staging area. A Bluetooth Low Energy (BLE) work item is then scheduled to run in a non-interrupt context. Hardware sampling continues uninterrupted using the alternate DMA buffer while BLE transmission is handled asynchronously.
 
-The BLE work handler packages each buffer into a notification payload consisting of a 4-byte timestamp followed by 80 serialized 16-bit ADC samples. At a 10 kHz sampling rate, this results in 125 packets transmitted per second. Data is sent using a GATT notify characteristic. If the BLE stack is temporarily congested, the handler retries transmission up to a fixed limit; if retries are exhausted, the buffer is dropped to prevent back-pressure from blocking acquisition.
+The BLE work handler packages each buffer into a notification payload consisting of a 4-byte timestamp followed by 80 serialized 16-bit ADC samples. Data is sent using a GATT notify characteristic. If the BLE stack is temporarily congested, the handler retries transmission up to a fixed limit; if retries are exhausted, the buffer is dropped to prevent back-pressure from blocking acquisition.
 
 This design forms a closed hardware loop:
 

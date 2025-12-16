@@ -13,7 +13,7 @@ title: Tianhong Xie's Portfolio # This is what shows up in the tab of the browse
 
 # Hero Section
 name: Tianhong Xie
-headline: headline message
+headline: 
 description: >- # dont remove this line. this will ignore all new lines until the next section
   Third-year engineering student at Harvey Mudd College, California. I focus on firmware/embedded system design, 
   low-level processor validation and also some machine learning. 
@@ -30,9 +30,9 @@ resume-url: https://drive.google.com/file/d/13Z3duVzh-gguPU5r03oJVEE6rV9rd3DS/vi
 # Set up external links - this will show up as small icons next to your name.
 
 external-links:    # input only your own url slug. The icons with missing entries will not appear.
-  linkedin: test    # https://www.linkedin.com/in/{your url slug} 
-  github: leea12    # https://github.com/{your url slug} 
-  stackoverflow: test      # https://stackoverflow.com/users/{your url slug}
+  linkedin: https://www.linkedin.com/in/tian-xie-11404220a/    # https://www.linkedin.com/in/{your url slug} 
+  github:    # https://github.com/{your url slug} 
+  stackoverflow:      # https://stackoverflow.com/users/{your url slug}
   medium:            # https://medium.com/@{your url slug} 
   x-twitter:   # https://x.com/{your url slug} 
   threads:            # https://threads.net/@{your url slug} 
